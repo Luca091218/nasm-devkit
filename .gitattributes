@@ -1,0 +1,14 @@
+# Treat assembly headers as NASM for language stats
+*.nasm linguist-language=nasm
+*.asm linguist-language=nasm
+*.inc linguist-language=nasm
+
+# Hide scripts from language stats
+*.bat linguist-detectable=false
+*.ps1 linguist-detectable=false
+*.sh linguist-detectable=false
+
+# Line endings: LF by default, CRLF for Windows scripts
+* text=auto eol=lf
+*.bat eol=crlf
+*.ps1 eol=crlf

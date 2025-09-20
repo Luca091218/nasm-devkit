@@ -1,0 +1,9 @@
+%ifndef __STRUTILS__COMPARISON_INC
+%define __STRUTILS__COMPARISON_INC
+
+extern string_compare
+extern string_n_compare
+extern string_compare_normalized
+extern string_n_compare_normalized
+
+%endif

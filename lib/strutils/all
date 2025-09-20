@@ -1,0 +1,10 @@
+%ifndef __STRUTILS__ALL_INC__
+%define __STRUTILS__ALL_INC__
+
+%include "strutils/properties.inc"
+%include "strutils/comparison.inc"
+%include "strutils/search.inc"
+
+%define NULL 0
+
+%endif

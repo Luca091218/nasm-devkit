@@ -1,0 +1,9 @@
+%ifndef __STRUTILS__SEARCH_INC__
+%define __STRUTILS__SEARCH_INC__
+
+extern string_find_char
+extern string_n_find_char
+extern string_find_char_last
+extern string_n_find_char_last
+
+%endif

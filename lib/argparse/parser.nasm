@@ -1,0 +1,100 @@
+%include "strutils/all"
+%include "argparse/_parser.internal.inc"
+%include "argparse/_args_container.internal.inc"
+
+global _args_collect_from_main
+global args_initialize
+global args_reset
+global args_parse_next
+
+section .text
+
+_args_collect_from_main:
+    mov [r8 + args_container_t.argv], argv_reg
+    mov [r8 + args_container_t.argc], argc_reg
+    ret
+
+args_initialize:
+    mov [r8 + args_container_t.option_list], r9
+    mov [r8 + args_container_t.option_list_count], r10d
+    mov dword [r8 + args_container_t.index], 1
+    ret
+
+args_reset:
+    mov dword [r8 + args_container_t.index], 1
+    ret
+
+args_parse_next:
+    push r8
+    push r9
+    push r10
+    push r11
+    push r12
+    push r13
+
+    xor eax, eax
+    mov r12d, [r8 + args_container_t.index]
+    cmp r12d, [r8 + args_container_t.argc]
+    mov r13, r8
+    jnb .return
+
+    mov r11d, r12d
+    xor r10d, r10d
+
+    .loop_find_option_begin:
+        mov rax, [r13 + args_container_t.argv]
+        mov rax, [rax + r12 * 8]
+
+        cmp byte [rax], '-'
+        je .is_option
+
+        test r10d, r10d
+        lea r12d, [r12d + 1]
+        jz .loop_find_option_end
+        jmp .advance_index
+
+    .is_option:
+        test r10d, r10d
+        jnz .loop_find_option_end
+
+        inc r12d
+        mov r8, [r13 + args_container_t.argv]
+        mov r8, [r8 + r11 * 8]
+        inc r8
+
+        .loop_match_option_begin:
+            cmp r10d, [r13 + args_container_t.option_list_count]
+            jnb .loop_match_option_end
+
+            inc r10d
+            mov r9, [r13 + args_container_t.option_list]
+            mov r9, [r9 + r10 * 8]
+            add r9, 8
+            call string_compare
+            jne .loop_match_option_begin
+        .loop_match_option_end:
+
+    .advance_index:
+        cmp r12d, [r13 + args_container_t.argc]
+        jb .loop_find_option_begin
+    .loop_find_option_end:
+
+    mov rax, [r13 + args_container_t.option_list]
+    mov rax, [rax + r10 * 8]
+    mov r8, [r13 + args_container_t.argv]
+    lea r8, [r8 + r11 * 8]
+    mov r9d, r12d
+    sub r9d, r11d
+    call [rax]
+
+    mov [r13 + args_container_t.index], r12d
+    mov eax, 1
+
+.return:
+    pop r13
+    pop r12
+    pop r11
+    pop r10
+    pop r9
+    pop r8
+    ret

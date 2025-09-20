@@ -1,0 +1,7 @@
+# Replace this with a recommended .gitignore for your IDE/editor
+
+# Always ignore build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake

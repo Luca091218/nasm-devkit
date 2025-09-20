@@ -1,0 +1,6 @@
+%ifndef __STYLING__ALL_INC__
+%define __STYLING__ALL_INC__
+
+%include "styling/ansi.inc"
+
+%endif

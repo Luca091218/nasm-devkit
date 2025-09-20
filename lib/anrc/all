@@ -1,0 +1,8 @@
+%ifndef __ANRC__ALL_INC__
+%define __ANRC__ALL_INC__
+
+%include "anrc/_clib_funcs.internal.inc"
+%include "anrc/_clib_consts.internal.inc"
+%include "anrc/callclib.inc"
+
+%endif

@@ -89,12 +89,12 @@ git commit -m "Bootstrap project."
 
 In `/src/` you will find two starting files:
 
-* **`main.nasm`** — the reserved runtime entrypoint. It sets up the environment, collects arguments, and transfers control to your program.
+* **`main.nasm`:** the reserved runtime entrypoint. It sets up the environment, collects arguments, and transfers control to your program.
 
   * This file must remain named `main.nasm`.
   * You normally do not edit it unless you are customizing the runtime itself.
 
-* **`program.nasm`** — your program’s entrypoint. This is where your own code begins.
+* **`program.nasm`:** your program’s entrypoint. This is where your own code begins.
 
   * You may rename or expand this file as your project grows.
   * Keep your headers and symbols consistent if you rename it.
@@ -114,6 +114,11 @@ styling
 * Each library lives under `/lib/<name>/`.
 * Libraries may declare their own `dependencies.list`.
 * You can remove or add libraries freely.
+
+> [!WARNING]
+> **Libraries are incomplete.**
+>
+> The libraries under `lib/` are a work in progress and currently lack documentation, expect changes in future updates.
 
 ## 7. Next steps
 

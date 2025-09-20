@@ -1,3 +1,8 @@
+; main.nasm: reserved runtime entry point.
+; Intermediate step sets up the environment, collects arguments, and transfers
+; control to the user program. Do not rename this file or the `main` symbol
+; unless you are customizing the runtime.
+
 %include "anrc/all"
 %include "argparse/all"
 
@@ -9,11 +14,16 @@ extern program_entry
 section .bss
 
 program_stack_pointer: resq 1
-
-main_args_container: resb args_container_t_size
+main_args_container:  resb args_container_t_size
 
 section .text
 
+; int main(int argc, char **argv)
+; * DESC: Process entry. Captures argc/argv into `main_args_container`,
+;         clears scratch regs, calls `program_entry`, restores state, returns.
+; * PARAM argc: Logical argument count.
+; * PARAM argv: Pointer to argument vector.
+; * RETURNS: Exit status.
 main:
     push rbx
     push rdi
@@ -33,12 +43,12 @@ main:
     xor edx, edx
     xor edi, edi
     xor esi, esi
-    ; xor r8d, r8d
+    ; xor r8d, r8d  ; r8 contains program arguments from argparse
     xor r9d, r9d
     xor r10d, r10d
     xor r11d, r11d
     xor r12d, r12d
-    xor r13d, r14d
+    xor r13d, r13d
     xor r14d, r14d
     xor r15d, r15d
     call program_entry
@@ -54,19 +64,24 @@ main:
     pop rbx
     ret
 
+; int program_exit_early(int errno, char *msg)
+; * DESC: Exit helper. Optionally prints `msg` to stderr, then returns `errno`.
+; * PARAM errno: Process exit code (0 allowed).
+; * PARAM msg: Null-terminated message string (or null pointer for no output).
+; * RETURNS: Exit status.
 program_exit_early:
     test r8d, r8d
-    mov eax, r8d
-    jz main.restore_stack
+    mov  eax, r8d
+    jz   main.restore_stack
 
     test r9, r9
-    mov r10d, eax
-    jz main.restore_stack
+    mov  r10d, eax
+    jz   main.restore_stack
 
-    mov r8, r9
+    mov  r8, r9
     callclib cc_get_stderr
-    mov r9, rax
+    mov  r9, rax
     callclib 2, cc_fputs
 
-    mov eax, r10d
-    jmp main.restore_stack
+    mov  eax, r10d
+    jmp  main.restore_stack

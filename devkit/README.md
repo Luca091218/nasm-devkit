@@ -1,6 +1,6 @@
 # NASM DevKit
 
-**NASM DevKit** is a cross-platform template and development kit for building NASM projects with modern tooling. It gives you a ready-to-use workspace that just works, from build system to dependencies, libraries, and interop.
+[**NASM DevKit**](https://github.com/anar-bastanov/nasm-devkit) is a cross-platform template and development kit for building NASM projects with modern tooling. It gives you a ready-to-use workspace that just works, from build system to dependencies, libraries, and interop.
 
 ## Features
 
@@ -24,5 +24,5 @@
 
 ## License
 
-The DevKit uses a mixed license model (MIT, LGPL-3.0, CC BY 4.0)
+The DevKit uses a mixed license model (MIT, LGPL-3.0, CC BY 4.0)</br>
 See [devkit/LICENSE.md](LICENSE.md) for details.

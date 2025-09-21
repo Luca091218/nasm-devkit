@@ -6,11 +6,19 @@
 
 global program_entry
 
+section .rotext
+
+; `static const char *hello_world_msg`
+; * **DESC:** Message to print to standard output.
+hello_world_msg:
+    db "Hello, World!", `\n`, 0
+
 section .text
 
-; int program_entry(void)
-; * DESC: User entry. Implement application logic and return an exit status.
-; * RETURNS: Exit status.
+; `int program_entry(args_container_t args)`
+; * **DESC:** Start of main application logic.
+; * **PARAM `args`:** Program arguments.
+; * **RETURNS:** Exit status.
 program_entry:
     lea  r8, [rel hello_world_msg]
     callclib 1, cc_printf
@@ -19,8 +27,3 @@ program_entry:
 
     xor  eax, eax
     ret
-
-section .rotext
-
-hello_world_msg:
-    db "Hello, World!", `\n`, 0

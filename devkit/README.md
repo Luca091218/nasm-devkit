@@ -4,12 +4,12 @@
 
 ## Features
 
-* **Project scaffold**: clean layout with `/src/`, `/lib/`, and build tools.
-* **CMake integration**: cross-platform builds with sensible defaults.
-* **Dependency system**: automatic resolution for include files.
-* **Interop with C/C++**: add C or C++ sources directly, link seamlessly with NASM.
-* **Unified calling convention**: `__anrc64` to avoid ABI confusion.
-* **Bundled libraries**: starter NASM libraries for common functions.
+* **Project scaffold:** clean layout with `/src/`, `/lib/`, and build tools.
+* **CMake integration:** cross-platform builds with sensible defaults.
+* **Dependency system:** automatic resolution for include files.
+* **Interop with C/C++:** add C or C++ sources directly, link seamlessly with NASM.
+* **Unified calling convention:** `__anrc64` to avoid ABI confusion.
+* **Bundled libraries:** starter NASM libraries for common functions.
 
 ## Why use it
 
@@ -19,8 +19,8 @@
 
 ## Documentation
 
-* [Project guide](GUIDE.md) — how to clone, bootstrap, and build.
-* [Calling convention](CALLING_CONVENTION.md) — the `__anrc64` specification.
+* [Project guide](GUIDE.md): how to clone, bootstrap, and build.
+* [Calling convention](CALLING_CONVENTION.md): the `__anrc64` specification.
 
 ## License
 

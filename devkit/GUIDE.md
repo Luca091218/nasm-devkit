@@ -6,7 +6,8 @@ This document explains how to start your own project with the DevKit.
 
 * CMake version 3.20 or newer
 * NASM version 2.15 or newer
-* A C/C++ toolchain
+* A C/C++ toolchain:
+
   * Windows: Visual Studio 2019/2022 (Build Tools or full VS), or LLVM/MinGW with Ninja
   * Linux / macOS: gcc or clang, with make or ninja
 * Git (optional, but recommended)
@@ -57,6 +58,8 @@ set(EXECUTABLE_NAME_VAR "myapp-cli")
 
 ## 3. Build
 
+Create a directory named `build`, then run:
+
 ```bash
 cmake -S . -B build
 cmake --build build --config Debug
@@ -73,6 +76,7 @@ Binaries are placed in `build/bin/<CONFIG>/`, for example:
 
 ```bash
 ./build/bin/Debug/myapp-cli
+Hello, World!
 ```
 
 ## 4. Initialize Git

